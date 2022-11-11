@@ -1,13 +1,15 @@
 package com.example.springdatajpajavakim.model.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.springdatajpajavakim.model.dto.CategoryDto;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Category {
     @Id
@@ -15,4 +17,9 @@ public class Category {
     private Long id;
 
     private String name;
+
+    public CategoryDto toDto(){
+        return new CategoryDto(this.id, this.name);
+    }
+
 }
